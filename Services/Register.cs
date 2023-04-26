@@ -10,29 +10,18 @@ public class RegisterService : IRegisterService
         _context = context;
     }
 
-    public async Task<Register> CreateRegister(Register register)
-    {
-         var employee = _context.Employees.Find(register.IdEmployee);
-         var location = _context.Locations.Find(register.IdLocation);
+    public async Task CreateRegister(Register register)
+    {    
 
-        
-            var nuevoRegistro = new Register()
-            {
-                IdEmployee = employee.Id,
-                Date = DateTime.Now,
-                RegisterType = register.RegisterType,
-                IdLocation = location.Id
-            };
-            _context.Registers.Add(nuevoRegistro);
+            register.Id = Guid.NewGuid();
+            register.Date = DateTime.Now;
+            await _context.Registers.AddAsync(register);
             await _context.SaveChangesAsync();
-            return nuevoRegistro;
-      
-       
-
+            
     }
 }
 
 public interface IRegisterService
 {
-    Task<Register> CreateRegister(Register register);
+    Task CreateRegister(Register register);
 };

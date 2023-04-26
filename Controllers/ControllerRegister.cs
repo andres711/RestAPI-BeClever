@@ -18,7 +18,8 @@ public class ControllerRegister : ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] Register register )
     {
-        var newRegister = registerService.CreateRegister(register);   
-        return Ok(newRegister);
+        registerService.CreateRegister(register);
+        return Ok("registro creado");
+ 
     }
 }

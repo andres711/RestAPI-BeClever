@@ -12,7 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//*****ACA COMPLETAR CON CREDENCIALES PROPIAS*****
 builder.Services.AddSqlServer<DbLocalContext>("Data Source = PC071996\\SQLEXPRESS; Initial Catalog = CleverDB; user id = sa; password = andres ");
+
 builder.Services.AddScoped<IRegisterService, RegisterService>();
 builder.Services.AddScoped<ISearchService, SearchService>();
 
@@ -37,7 +39,7 @@ app.MapControllers();
 app.MapGet("/DBconection", async([FromServices]DbLocalContext dbContext)=>
 {
     dbContext.Database.EnsureCreated();
-    return Results.Ok("base de datos en memoria " + dbContext.Database.IsInMemory());
+    return Results.Ok("base de datos creada");
 });
 
 app.Run();

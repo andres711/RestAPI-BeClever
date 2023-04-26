@@ -16,10 +16,10 @@ public class DbLocalContext : DbContext
     {
         List<Employee> employees = new List<Employee>();
 
-        employees.Add(new Employee() { Id = Guid.Parse("e4af117d-8ed0-499f-a666-a112713b7f6d"), Name = "Laura Gomez", Gender = Gender.female });
-        employees.Add(new Employee() { Id = Guid.Parse("f4af117d-8ed0-499f-a666-a112713b7f6c"), Name = "Andres Benitez", Gender = Gender.male });
-        employees.Add(new Employee() { Id = Guid.Parse("3630316a-9c40-45c1-90b2-3c52e591480e"), Name = "Juan Araujo", Gender = Gender.male });
-        employees.Add(new Employee() { Id = Guid.Parse("f01a21d4-5b17-4a49-ae54-d56b73b31d69"), Name = "Maria Casal", Gender = Gender.female });
+        employees.Add(new Employee() { Id = Guid.Parse("e4af117d-8ed0-499f-a666-a112713b7f6d"), Name = "Laura Gomez", Gender = "female" });
+        employees.Add(new Employee() { Id = Guid.Parse("f4af117d-8ed0-499f-a666-a112713b7f6c"), Name = "Andres Benitez", Gender = "male" });
+        employees.Add(new Employee() { Id = Guid.Parse("3630316a-9c40-45c1-90b2-3c52e591480e"), Name = "Juan Araujo", Gender = "male" });
+        employees.Add(new Employee() { Id = Guid.Parse("f01a21d4-5b17-4a49-ae54-d56b73b31d69"), Name = "Maria Casal", Gender = "female" });
 
         modelBuilder.Entity<Employee>(employee =>
         {
