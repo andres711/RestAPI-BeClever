@@ -1,11 +1,11 @@
 # RestAPI-BeClever
 <h1>Instrucciones para iniciar proyecto </h1>
+<h3>APi REST realizada en c# en entorno .net version 6, utilizando como orm Entity Framework version 6 y gestor de base de datos SQL Server.</h3>
 <ol>
 <li>Desde terminal ejecutar comando dotnet restore</li>
 <li>Configurar el string de conexion a la base de datos,en el archivo Program.cs, con credenciales propias </li>
 <li>Desde terminal ejecutar comando dotnet run</li>
 <li>Copiar desde terminal url base</li>
-<li>a</li>
 </ol>
 <h4>
 Para probar los endpoint puede utlizar alguna herrmaineta como Postman o ThunderClient
