@@ -1,0 +1,26 @@
+# Carpeta bin y obj
+bin/
+obj/
+
+# Archivos de compilación
+*.dll
+*.exe
+
+# Archivos de configuración
+appsettings.json
+appsettings.Development.json
+
+# Archivos de registro
+*.log
+
+# Carpeta .vs
+.vs/
+
+# Archivos de solución específicos del usuario
+*.suo
+
+# Archivos de respaldo de Visual Studio
+*.bak
+*.backup
+*.vhd
+*.vhdx
