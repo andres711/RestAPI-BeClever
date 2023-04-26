@@ -10,7 +10,7 @@
 </ol>
 <h4>
 Endpoints disponibles:
-Service 1 :[POST] urlHost/api/register
-Service 2 :[GET] urlHost/api/search
+Service 1 :[POST] urlHost/api/register \n
+Service 2 :[GET] urlHost/api/search \n
 Para probar los endpoint puede utlizar alguna herrmaineta como Postman o ThunderClient
 </h4>
