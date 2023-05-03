@@ -12,21 +12,33 @@ public class SearchService : ISearchService
         _context = context;
     }
 
-    public async Task<List<Register>> Search(DateTime dateFrom, DateTime dateTo, string name, string country)
+    public IEnumerable<Register> Search(DateTime dateFrom, DateTime dateTo, string name, string businessLocation)
     {   
-        var findCountry = _context.Locations.Where(location => location.Country.Equals(country)).FirstOrDefault();
-        var query = _context.Registers.AsQueryable();
-        query = query.Where(r => r.Employee.Name.Contains(name));
-        query = query.Where(r => r.IdLocation == findCountry.Id);
-        query = query.Where(r => r.Date >= dateFrom && r.Date <= dateTo);
         
-        var registers = await query.ToListAsync();
+        var data = _context.Registers.AsQueryable();
+        data = data.Where(e => e.Date >= dateFrom && e.Date <= dateTo);
+        if(data.Count() == 0)
+        {
+            throw new ElementoNoEncontradoException("no hay registros en las fechas indicadas");
+        }
+        data = data.Where(e => e.Employee.Name.Contains(name));
+        if(data.Count() == 0)
+        {
+            throw new ElementoNoEncontradoException("no hay registros para ese nombre en la fecha especificada");
+        }
+        data = data.Where(e => e.Location.Country.Contains(businessLocation));
+        if(data.Count() == 0)
+        {
+            throw new ElementoNoEncontradoException("no hay registros en esa sucursal para ese nombre en la fecha especificada");
+        }
+        var registers = data.ToList();
         return registers;
-
+        
     }
 }
 
 public interface ISearchService
 {
-    Task<List<Register>> Search(DateTime dateFrom, DateTime dateTo, string name, string country);
+    IEnumerable<Register> Search(DateTime dateFrom, DateTime dateTo, string name, string businessLocation);
 }
+
