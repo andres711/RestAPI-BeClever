@@ -14,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //*****ACA COMPLETAR CON CREDENCIALES PROPIAS*****
-builder.Services.AddSqlServer<DbLocalContext>("Data Source = PC071996\\SQLEXPRESS; Initial Catalog = CleverDB; user id =sa; password = andres");
+builder.Services.AddSqlServer<DbLocalContext>("Data Source =***; Initial Catalog = ***; user id =***; password = ***");
 
 builder.Services.AddScoped<IRegisterService, RegisterService>();
 builder.Services.AddScoped<ISearchService, SearchService>();
