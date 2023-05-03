@@ -13,7 +13,7 @@ public class RegisterService : IRegisterService
     public async Task Create(Register register)
     {    
 
-            Console.WriteLine(register.IdEmployee);
+            
             var employee = await _context.Employees.FindAsync(register.IdEmployee);
             
             var location = await _context.Locations.FindAsync(register.IdLocation);
